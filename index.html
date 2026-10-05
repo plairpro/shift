@@ -1,11 +1,144 @@
-<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#10191e"><meta name="description" content="Сдвиг — тактическая дуэль роботов. Толкай, притягивай, поворачивай арену."><title>СДВИГ — дуэль роботов</title><link rel="icon" type="image/svg+xml" href="./favicon.svg">  <script type="module" crossorigin src="./index-Cfx5Six-.js"></script>
-  <link rel="stylesheet" crossorigin href="./index-CaUFssqd.css">
-</head><body><div id="app">
-<header><a class="brand" href="./"><span class="brand-mark">↗</span><span>СДВИГ<small>ТАКТИЧЕСКАЯ ДУЭЛЬ</small></span></a><div class="top-center"><i></i> АРЕНА 01 <span>/</span> МЕХАНИЧЕСКИЙ ЦЕХ</div><nav><button id="sound" class="quiet" aria-label="Переключить звук">Звук: вкл</button><button id="help" class="quiet">Правила ↗</button><button id="menu" class="outline">Новая игра</button></nav></header>
-<main><section class="arena-shell"><div class="scoreboard"><div class="team cyan"><span class="team-tag">◆</span><div><small>КОМАНДА 01</small><strong id="name0">БИРЮЗА</strong></div><b id="score0">0</b></div><div class="score-mid"><span id="round">ХОД 01</span><small>ДО 3 ВЫБИВАНИЙ</small></div><div class="team orange"><b id="score1">0</b><div><small>КОМАНДА 02</small><strong id="name1">ЯНТАРЬ</strong></div><span class="team-tag">●</span></div></div><div id="viewport"><div id="loading"><span class="spinner"></span><span id="loadText">Подготовка роботов…</span></div><div class="scene-label"><span>6 × 6</span> ПЛАТФОРМА СДВИГА</div><button id="camera" class="camera" title="Сменить ракурс">◈ Ракурс</button></div><div class="arena-footer"><span><i class="dot"></i> <span id="modeLabel">ТРЕНИРОВКА С БОТОМ</span></span><span id="networkLabel">ПРОТОТИП · 0.1</span></div></section>
-<aside><div class="turn-heading"><span class="eyebrow">СЕЙЧАС НА АРЕНЕ</span><h1 id="turnTitle">Ваш ход<span>↗</span></h1><p id="turnHint">Выберите робота на поле</p></div><section class="control-card"><div id="unitHead"><span class="unit-symbol">⌁</span><div><small>ВАШ ОТРЯД</small><h2>Четыре роли. Один ход.</h2></div></div><p id="unitTip">Выберите фигуру, затем действие. Перед подтверждением увидите результат.</p><div id="roster"></div><div id="actions"></div></section><section class="platform-card"><div><span class="eyebrow">ЦЕНТР 2 × 2</span><h3>Повернуть арену</h3></div><div class="rotation"><button id="rotateLeft" aria-label="Повернуть против часовой стрелки">↶</button><button id="rotateRight" aria-label="Повернуть по часовой стрелке">↷</button></div><p id="rotateHint">Поворот заменяет действие робота</p></section><section id="preview" class="preview hidden"><span class="eyebrow">ПРЕДПРОСМОТР ХОДА</span><p id="previewText"></p><div><button id="cancel" class="outline">Отмена</button><button id="confirm" class="primary">Подтвердить ↗</button></div></section><section class="log"><span class="eyebrow">ПОСЛЕДНИЕ ДЕЙСТВИЯ</span><ol id="history"><li>Здесь начнётся ваша комбинация.</li></ol></section><p class="aside-note">Сила — в позиции.</p></aside></main>
-<footer><span>ТОЛКАЙ. ПРИТЯГИВАЙ. МЕНЯЙ ПОЛЕ.</span><span>Модели: <a href="https://quaternius.com/packs/animatedmech.html" target="_blank" rel="noopener">Quaternius</a> · CC0</span></footer>
-</div><dialog id="startDialog"><button class="dialog-close" id="closeStart" aria-label="Закрыть">×</button><span class="eyebrow">СДВИГ / ПЕРВАЯ АРЕНА</span><h2>Переиграй.<br><em>Вытолкни.</em></h2><p>Четыре робота, поворотная платформа и один решающий ход. Выбей трёх роботов соперника.</p><div class="mode-options"><button id="startBot" class="primary">Против бота <span>Начать ↗</span></button><button id="startLocal" class="outline">Двое на одном экране <span>→</span></button><button id="startOnline" class="outline">Онлайн с другом <span>↗</span></button></div><small>Без случайного урона. Все решения — ваши.</small></dialog>
-<dialog id="helpDialog"><button class="dialog-close" data-close="helpDialog" aria-label="Закрыть">×</button><span class="eyebrow">КАК ИГРАТЬ</span><h2>Поле — тоже оружие.</h2><p>В свой ход активируйте одного робота <b>или</b> поверните центральные четыре клетки. Выберите цель и подтвердите ход.</p><div class="rules-grid"><div><b>01 / Движение</b><p>Все ходят на 1–2 клетки по прямой. Через занятые клетки ходить нельзя.</p></div><div><b>02 / Толчок</b><p>Все толкают соседнюю фигуру и цепочку за ней на одну клетку. Таран — на две. Союзников тоже можно сдвигать!</p></div><div><b>03 / Способности</b><p>Магнит притягивает на одну клетку с расстояния 2–3 по прямой. Прыгун прыгает ровно на две клетки по прямой или диагонали. Якорь фиксируется до своего движения.</p></div><div><b>04 / Платформа</b><p>Поворот на 90° переносит всех в центре. Нужна хотя бы одна фигура в центре. Закреплённый Якорь блокирует поворот. Два поворота подряд запрещены.</p></div></div><p class="rule-bottom">Выбейте 3 из 4 роботов соперника. Третье повторение позиции или 120 ходов — ничья. Фиксация блокирует толчки и притяжение.</p><button class="primary" data-close="helpDialog">Понятно, к игре ↗</button></dialog>
-<dialog id="onlineDialog"><button class="dialog-close" data-close="onlineDialog" aria-label="Закрыть">×</button><span class="eyebrow">ОНЛАЙН / ДУЭЛЬ ПО ПРИГЛАШЕНИЮ</span><h2>Позови соперника.</h2><p>Создай комнату и отправь ссылку другу. Оставь эту вкладку открытой.</p><button id="host" class="primary">Создать комнату ↗</button><div id="inviteBox" class="hidden"><label for="invite">Ссылка-приглашение</label><input id="invite" readonly><button id="copyInvite" class="outline">Скопировать ссылку</button></div><p class="divider">или введи код комнаты</p><div class="join-row"><input id="roomCode" placeholder="Код комнаты" maxlength="32" aria-label="Код комнаты"><button id="join" class="primary">Войти</button></div><p id="onlineStatus" role="status"></p><small>Прямое соединение WebRTC. В некоторых сетях подключение может быть недоступно. При разрыве создайте новую комнату; рейтинг не ведётся.</small></dialog>
-<dialog id="endDialog"><span class="eyebrow">ДУЭЛЬ ЗАВЕРШЕНА</span><h2 id="endTitle"></h2><p id="endText"></p><button id="rematch" class="primary">Ещё партия ↗</button><button class="quiet" data-close="endDialog">Посмотреть поле</button></dialog><div id="toast" role="status"></div></body></html>
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f1a1f">
+<meta name="description" content="Сдвиг — тактическая дуэль роботов. Толкай, притягивай, поворачивай арену.">
+<title>СДВИГ — дуэль роботов</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <script type="module" crossorigin src="./assets/index-BPUfr8D2.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CWCm6BdY.css">
+</head>
+<body>
+<div id="app">
+ <header class="topbar">
+  <a class="brand" href="./"><span class="brand-mark">↗</span><span class="brand-name">СДВИГ</span></a>
+  <span id="modePill" class="mode-pill">Против бота</span>
+  <nav>
+   <button id="help" class="ghost">Правила</button>
+   <button id="sound" class="icon-btn" aria-label="Звук" data-icon="sound"></button>
+   <button id="menu" class="outline">Новая игра</button>
+  </nav>
+ </header>
+
+ <main>
+  <section class="arena">
+   <div class="scorebar">
+    <div class="side side-0"><div class="side-name"><span class="team-dot"></span><strong id="name0">Бирюза</strong></div><div class="pips" id="pips0"></div></div>
+    <div class="score-mid"><span id="round">Ход 1</span><small>выбей 3 из 4</small></div>
+    <div class="side side-1"><div class="side-name"><strong id="name1">Янтарь</strong><span class="team-dot"></span></div><div class="pips" id="pips1"></div></div>
+   </div>
+   <div id="viewport">
+    <div id="loading"><span class="spinner"></span><span id="loadText">Подготовка роботов…</span></div>
+    <div id="banner" class="banner"></div>
+    <div class="legend" aria-label="Обозначения">
+     <span class="lg move">ход</span><span class="lg jump">прыжок</span><span class="lg push">толчок</span><span class="lg pull">притяжение</span><span class="lg kill">выбьет</span>
+    </div>
+    <button id="camera" class="icon-btn view-btn" title="Сменить ракурс" data-icon="camera"><span>Сверху</span></button>
+   </div>
+  </section>
+
+  <aside>
+   <section class="turn-card">
+    <div class="turn-top"><h1 id="turnTitle">Ваш ход</h1><span id="thinking" class="thinking hidden"><i></i><i></i><i></i></span></div>
+    <p id="turnHint">Выберите робота на поле или в списке</p>
+   </section>
+
+   <section id="preview" class="preview hidden" aria-live="polite">
+    <span class="eyebrow">Предпросмотр</span>
+    <p id="previewText"></p>
+    <p id="previewWarn" class="warn hidden"></p>
+    <div class="preview-actions"><button id="cancel" class="outline">Отмена <kbd>Esc</kbd></button><button id="confirm" class="primary">Подтвердить <kbd>Enter</kbd></button></div>
+   </section>
+
+   <section class="card">
+    <div class="card-head"><span class="eyebrow" id="squadLabel">Ваш отряд</span><span class="eyebrow dim">1–4</span></div>
+    <div id="squad" class="squad"></div>
+    <div id="detail" class="detail hidden"></div>
+   </section>
+
+   <section class="card platform">
+    <div class="card-head"><span class="eyebrow">Центр 2×2</span></div>
+    <div class="rotation">
+     <button id="rotateLeft" class="rot" data-icon="rotL"><span>Против часовой</span></button>
+     <button id="rotateRight" class="rot" data-icon="rotR"><span>По часовой</span></button>
+    </div>
+    <p id="rotateHint" class="small">Поворот заменяет действие робота</p>
+   </section>
+
+   <section class="tools">
+    <button id="hintBtn" class="outline" data-icon="hint"><span>Подсказка</span></button>
+    <button id="undoBtn" class="outline" data-icon="undo"><span>Вернуть ход</span></button>
+   </section>
+
+   <section class="log">
+    <span class="eyebrow">Последние действия</span>
+    <ol id="history"></ol>
+   </section>
+  </aside>
+ </main>
+ <footer><span>Толкай. Притягивай. Меняй поле.</span><span>Модели: <a href="https://quaternius.com/packs/animatedmech.html" target="_blank" rel="noopener">Quaternius</a> · CC0</span></footer>
+</div>
+
+<dialog id="startDialog">
+ <button class="dialog-close" id="closeStart" aria-label="Закрыть">×</button>
+ <span class="eyebrow">Сдвиг · тактическая дуэль</span>
+ <h2>Переиграй.<br><em>Вытолкни.</em></h2>
+ <p>Четыре робота с разными умениями и поворотная платформа в центре. Выбей трёх роботов соперника за край поля.</p>
+ <div class="level-pick">
+  <span class="eyebrow">Сила бота</span>
+  <div class="seg" id="levelSeg">
+   <button data-level="easy">Новичок</button><button data-level="normal">Боец</button><button data-level="hard">Мастер</button>
+  </div>
+ </div>
+ <div class="mode-options">
+  <button id="startBot" class="primary" autofocus>Играть против бота <span>→</span></button>
+  <button id="startLocal" class="outline">Вдвоём на одном экране <span>→</span></button>
+  <button id="startOnline" class="outline">Онлайн с другом <span>→</span></button>
+ </div>
+ <small>Никакой случайности. Красное кольцо под роботом — его могут выбить следующим ходом.</small>
+</dialog>
+
+<dialog id="helpDialog">
+ <button class="dialog-close" data-close="helpDialog" aria-label="Закрыть">×</button>
+ <span class="eyebrow">Как играть</span>
+ <h2>Поле — тоже оружие.</h2>
+ <p>За ход — <b>одно</b> действие: один робот действует <b>или</b> поворачивается центр 2×2. Цель — вытолкнуть за край 3 из 4 роботов соперника.</p>
+ <ol class="how">
+  <li><b>Выберите робота</b> — на поле или в списке. На поле появятся все его варианты.</li>
+  <li><b>Нажмите на метку.</b> Цвет подскажет действие, красный — кто-то вылетит за край.</li>
+  <li><b>Проверьте предпросмотр</b> и подтвердите. Повторный клик по той же метке тоже подтверждает.</li>
+ </ol>
+ <div class="rules-grid" id="rolesGrid"></div>
+ <div class="rules-grid">
+  <div><b>Все роботы</b><p>Ходят на 1–2 клетки по прямой (не сквозь фигуры). Толкают соседа и всю цепочку за ним на 1 клетку — своих тоже.</p></div>
+  <div><b>Центр 2×2</b><p>Поворот на 90° переносит всех, кто стоит в центре. Нужен хотя бы один робот в центре, закреплённый Якорь его блокирует, два поворота подряд нельзя.</p></div>
+ </div>
+ <p class="rule-bottom">Ничья: у обоих остался один робот, позиция повторилась трижды или прошло 120 ходов.<br>Клавиши: <kbd>1</kbd>–<kbd>4</kbd> выбор робота, <kbd>Enter</kbd> подтвердить, <kbd>Esc</kbd> отмена, <kbd>Z</kbd> вернуть ход.</p>
+ <button class="primary" data-close="helpDialog">Понятно</button>
+</dialog>
+
+<dialog id="onlineDialog">
+ <button class="dialog-close" data-close="onlineDialog" aria-label="Закрыть">×</button>
+ <span class="eyebrow">Онлайн · дуэль по приглашению</span>
+ <h2>Позови соперника.</h2>
+ <p>Создай комнату и отправь ссылку другу. Оставь эту вкладку открытой.</p>
+ <button id="host" class="primary wide">Создать комнату</button>
+ <div id="inviteBox" class="hidden"><label for="invite">Ссылка-приглашение</label><input id="invite" readonly><button id="copyInvite" class="outline wide">Скопировать ссылку</button></div>
+ <p class="divider">или введи код комнаты</p>
+ <div class="join-row"><input id="roomCode" placeholder="Код комнаты" maxlength="32" aria-label="Код комнаты"><button id="join" class="primary">Войти</button></div>
+ <p id="onlineStatus" role="status"></p>
+ <small>Прямое соединение WebRTC. В некоторых сетях подключение может быть недоступно. При разрыве создайте новую комнату.</small>
+</dialog>
+
+<dialog id="endDialog">
+ <span class="eyebrow">Дуэль завершена</span>
+ <h2 id="endTitle"></h2>
+ <p id="endText"></p>
+ <button id="rematch" class="primary wide">Ещё партия</button>
+ <button class="ghost wide" data-close="endDialog">Посмотреть поле</button>
+</dialog>
+<div id="toast" role="status"></div>
+</body>
+</html>
