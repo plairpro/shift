@@ -7,8 +7,8 @@
 <meta name="description" content="Сдвиг — тактическая дуэль роботов. Толкай, притягивай, поворачивай арену.">
 <title>СДВИГ — дуэль роботов</title>
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-  <script type="module" crossorigin src="./assets/index-QbDv0Vdr.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-D7NAw1HQ.css">
+  <script type="module" crossorigin src="./assets/index-CUOlw-My.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D2AyPzhQ.css">
 </head>
 <body>
 <div id="app">
@@ -26,17 +26,20 @@
   <section class="arena">
    <div class="scorebar">
     <div class="side side-0"><div class="side-name"><span class="team-dot"></span><strong id="name0">Вы</strong></div><div class="pips" id="pips0"></div></div>
-    <div class="score-mid"><span id="round">Ход 1</span><small>выбей 3 из 4 · <b id="centerScore">очки центра 0 : 0</b></small></div>
+    <div class="score-mid"><span id="round">Ход 1</span><small><span class="goal">выбей 3 из 4 · </span><b id="centerScore">очки центра 0 : 0</b></small></div>
     <div class="side side-1"><div class="side-name"><strong id="name1">Бот</strong><span class="team-dot"></span></div><div class="pips" id="pips1"></div></div>
    </div>
    <div id="viewport">
     <div id="loading"><span class="spinner"></span><span id="loadText">Подготовка роботов…</span></div>
     <div id="banner" class="banner"></div>
-    <div class="legend" aria-label="Обозначения">
+    <div class="legend legend-in" aria-label="Обозначения">
      <span class="lg move">ход</span><span class="lg jump">прыжок</span><span class="lg push">толчок</span><span class="lg pull">притяжение</span><span class="lg kill">выбьет</span><span class="lg hole">провал</span><span class="lg next">пропадёт</span>
     </div>
     <button id="camera" class="icon-btn view-btn" title="Сменить ракурс" data-icon="camera"><span>Сверху</span></button>
    </div>
+   <div class="legend legend-out">
+     <span class="lg move">ход</span><span class="lg jump">прыжок</span><span class="lg push">толчок</span><span class="lg pull">притяжение</span><span class="lg kill">выбьет</span><span class="lg hole">провал</span><span class="lg next">пропадёт</span>
+    </div>
   </section>
 
   <aside>
