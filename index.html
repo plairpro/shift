@@ -7,8 +7,8 @@
 <meta name="description" content="Сдвиг — тактическая дуэль роботов. Толкай, притягивай, поворачивай арену.">
 <title>СДВИГ — дуэль роботов</title>
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-  <script type="module" crossorigin src="./assets/index-D3F5CaPv.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CqFrZxvH.css">
+  <script type="module" crossorigin src="./assets/index-QbDv0Vdr.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D7NAw1HQ.css">
 </head>
 <body>
 <div id="app">
@@ -26,7 +26,7 @@
   <section class="arena">
    <div class="scorebar">
     <div class="side side-0"><div class="side-name"><span class="team-dot"></span><strong id="name0">Вы</strong></div><div class="pips" id="pips0"></div></div>
-    <div class="score-mid"><span id="round">Ход 1</span><small>выбей 3 из 4</small></div>
+    <div class="score-mid"><span id="round">Ход 1</span><small>выбей 3 из 4 · <b id="centerScore">очки центра 0 : 0</b></small></div>
     <div class="side side-1"><div class="side-name"><strong id="name1">Бот</strong><span class="team-dot"></span></div><div class="pips" id="pips1"></div></div>
    </div>
    <div id="viewport">
@@ -43,6 +43,7 @@
    <section class="turn-card">
     <div class="turn-top"><h1 id="turnTitle">Ваш ход</h1><span id="thinking" class="thinking hidden"><i></i><i></i><i></i></span></div>
     <p id="turnHint">Выберите робота на поле или в списке</p>
+    <button id="endTurn" class="primary wide end-turn hidden">Завершить ход <kbd>E</kbd></button>
    </section>
 
    <section id="preview" class="preview hidden" aria-live="polite">
@@ -61,6 +62,7 @@
    <section class="card platform" id="centerCard">
     <div class="card-head"><span class="eyebrow">Центр 2×2</span><span id="centerTag" class="tag"></span></div>
     <div class="center-row"><div id="centerMini" class="center-mini" aria-hidden="true"><i></i><i></i><i></i><i></i></div><p id="centerHint" class="small"></p></div>
+    <p id="ringHint" class="small ring-hint"></p>
    </section>
 
    <section class="tools">
@@ -100,7 +102,7 @@
  <button class="dialog-close" data-close="helpDialog" aria-label="Закрыть">×</button>
  <span class="eyebrow">Как играть</span>
  <h2>Поле — тоже оружие.</h2>
- <p>За ход — <b>одно</b> действие одного робота. Цель — выбить 3 из 4 роботов соперника: вытолкнуть за край или в провал.</p>
+ <p>За ход — <b>два действия разными роботами</b> (в самом первом ходу партии — одно). Можно завершить ход и после одного. Цель — выбить 3 из 4 роботов соперника: вытолкнуть за край или в провал.</p>
  <ol class="how">
   <li><b>Выберите робота</b> — на поле или в списке. На поле появятся все его варианты.</li>
   <li><b>Нажмите на метку.</b> Цвет подскажет действие, красный — кто-то вылетит за край или в провал.</li>
@@ -109,9 +111,9 @@
  <div class="rules-grid" id="rolesGrid"></div>
  <div class="rules-grid">
   <div><b>Все роботы</b><p>Ходят на 1 клетку по прямой (не в провал). Толкают соседа и всю цепочку за ним на 1 клетку — своих тоже.</p></div>
-  <div><b>Обрушение центра</b><p>Когда заняты все целые клетки центра, та, что занята дольше всех, становится розовой и после следующего хода проваливается. Дальше так же: заняли оставшиеся 3 — проваливается первая из них, потом из 2 и последняя. Когда провалились все 4 клетки центра, все клетки внешнего края поля становятся розовыми и после следующего хода обрушиваются разом — поле сжимается до 4×4. Кто стоит на провалившейся клетке — выбывает. В провал нельзя зайти, но туда можно столкнуть или притянуть.</p></div>
+  <div><b>Обрушение поля</b><p>Когда заняты все целые клетки центра, та, что занята дольше всех, становится розовой и проваливается в конце следующего хода. Дальше так же с оставшимися. После 30-го хода весь внешний край поля обрушивается разом (за ход до этого он розовеет). Кто стоит на провалившейся клетке — выбывает. В провал нельзя зайти, но туда можно столкнуть или притянуть.</p></div>
  </div>
- <p class="rule-bottom">Ничья: у обоих остался один робот, позиция повторилась трижды или прошло 120 ходов.<br>Клавиши: <kbd>1</kbd>–<kbd>4</kbd> выбор робота, <kbd>Enter</kbd> подтвердить, <kbd>Esc</kbd> отмена, <kbd>Z</kbd> вернуть ход.</p>
+ <p class="rule-bottom">Очки центра: в конце каждого хода +1 той команде, у которой в центре больше роботов. Если за 60 ходов никто не выбил троих или позиция повторилась трижды — побеждает тот, у кого больше очков центра (равенство — ничья).<br>Клавиши: <kbd>1</kbd>–<kbd>4</kbd> выбор робота, <kbd>Enter</kbd> подтвердить, <kbd>E</kbd> завершить ход, <kbd>Esc</kbd> отмена, <kbd>Z</kbd> вернуть действие.</p>
  <button class="primary" data-close="helpDialog">Понятно</button>
 </dialog>
 
