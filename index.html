@@ -7,8 +7,8 @@
 <meta name="description" content="Сдвиг — тактическая дуэль роботов. Толкай, притягивай, поворачивай арену.">
 <title>СДВИГ — дуэль роботов</title>
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-  <script type="module" crossorigin src="./assets/index-CYT1a7a-.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-D2AyPzhQ.css">
+  <script type="module" crossorigin src="./assets/index-D6Cib3yz.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BJVjAE-8.css">
 </head>
 <body>
 <div id="app">
@@ -105,7 +105,7 @@
  <button class="dialog-close" data-close="helpDialog" aria-label="Закрыть">×</button>
  <span class="eyebrow">Как играть</span>
  <h2>Поле — тоже оружие.</h2>
- <p>За ход — <b>два действия разными роботами</b>. Можно завершить ход и после одного. Цель — выбить 3 из 4 роботов соперника: вытолкнуть за край или в провал.</p>
+ <p>Кто ходит первым, решает «камень, ножницы, бумага» до первой победы. За ход — <b>два действия разными роботами</b>. Можно завершить ход и после одного. Цель — выбить 3 из 4 роботов соперника: вытолкнуть за край или в провал.</p>
  <ol class="how">
   <li><b>Выберите робота</b> — на поле или в списке. На поле появятся все его варианты.</li>
   <li><b>Нажмите на метку.</b> Цвет подскажет действие, красный — кто-то вылетит за край или в провал.</li>
@@ -133,6 +133,18 @@
  <small>Прямое соединение WebRTC. В некоторых сетях подключение может быть недоступно. При разрыве создайте новую комнату.</small>
 </dialog>
 
+<dialog id="rpsDialog">
+ <span class="eyebrow">Кто ходит первым</span>
+ <h2 id="rpsTitle">Камень, ножницы, бумага</h2>
+ <p id="rpsText"></p>
+ <div class="rps" id="rpsPicks">
+  <button data-pick="rock"><i>✊</i><span>Камень</span></button>
+  <button data-pick="scissors"><i>✌️</i><span>Ножницы</span></button>
+  <button data-pick="paper"><i>✋</i><span>Бумага</span></button>
+ </div>
+ <div id="rpsReveal" class="rps-reveal hidden"></div>
+ <button id="rpsGo" class="primary wide hidden">Начать партию</button>
+</dialog>
 <dialog id="endDialog">
  <span class="eyebrow">Дуэль завершена</span>
  <h2 id="endTitle"></h2>
