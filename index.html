@@ -7,8 +7,8 @@
 <meta name="description" content="Сдвиг — тактическая дуэль роботов. Толкай, притягивай, комбинируй ходы.">
 <title>СДВИГ — дуэль роботов</title>
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-  <script type="module" crossorigin src="./assets/index-zsahNRDH.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CpCoZ5cE.css">
+  <script type="module" crossorigin src="./assets/index-CBJhD1uh.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BgOB-pwG.css">
 </head>
 <body>
 <div id="app">
@@ -64,8 +64,8 @@
    </section>
 
    <section class="card platform" id="centerCard">
-    <div class="card-head"><span class="eyebrow">Центр 3×3</span><span id="centerTag" class="tag"></span></div>
-    <div class="center-row"><div id="centerMini" class="center-mini" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p id="centerHint" class="small"></p></div>
+    <div class="card-head"><span class="eyebrow">Центр</span><span id="centerTag" class="tag"></span></div>
+    <div class="center-row"><div id="centerMini" class="center-mini" aria-hidden="true"><i class="void"></i><i></i><i class="void"></i><i></i><i></i><i></i><i class="void"></i><i></i><i class="void"></i></div><p id="centerHint" class="small"></p></div>
     <p id="ringHint" class="small ring-hint"></p>
    </section>
 
@@ -114,7 +114,7 @@
  </ol>
  <div class="rules-grid" id="rolesGrid"></div>
  <div class="rules-grid">
-  <div><b>Поле и расстановка</b><p>Поле 7×7, в середине — обрушаемый центр 3×3. Отряд стоит буквой «Т»: Таран, Якорь и Магнит в ряд, Прыгун — за Якорем на крайней линии. У соперника — зеркально.</p></div>
+  <div><b>Поле и расстановка</b><p>Поле 5×5, в середине — обрушаемый центр-крест из 5 клеток. Отряд стоит буквой «Т»: Таран, Якорь и Магнит в ряд, Прыгун — за Якорем на крайней линии. У соперника — зеркально.</p></div>
   <div><b>Все роботы</b><p>Ходят на 1 клетку по прямой (не в провал). Толкают соседа и всю цепочку за ним на 1 клетку — своих тоже. По диагонали ходит только Прыгун; толчки, притяжение и прыжки — только по прямой.</p></div>
   <div><b>Обрушение поля</b><p>Когда заняты все целые клетки центра, та, что занята дольше всех, становится розовой и проваливается в конце следующего хода. Дальше так же с оставшимися. После 30-го хода весь внешний край поля обрушивается разом: за 5 ходов до этого он бледнеет и включается отсчёт, а в последний ход становится розовым. Кто стоит на провалившейся клетке — выбывает. В провал нельзя зайти, но туда можно столкнуть или притянуть.</p></div>
  </div>
